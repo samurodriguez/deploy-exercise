@@ -1,0 +1,20 @@
+name: "build and deploy"
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: "install dependencies"
+        run: npm run ci
+      - name: "build files"
+        run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public

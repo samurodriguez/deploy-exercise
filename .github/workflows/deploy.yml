@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 22
       - name: "install dependencies"
-        run: npm run ci
+        run: npm ci
       - name: "build files"
         run: npm run build
       - uses: actions/upload-pages-artifact@v3
